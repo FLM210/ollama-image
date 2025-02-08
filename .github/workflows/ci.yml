@@ -12,5 +12,5 @@ jobs:
       run: |
         IMAGE_TAG=`cat Dockerfile|grep VERSION|awk '{print $2}'`
         docker login docker.io --username=${{ secrets.DOCKERHUBUSER }} --password=${{ secrets.DOCKERHUBPASSWD }} 
-        docker build -t hahtangtang/images/ollama:$IMAGE_TAG .
-        docker push hahtangtang/images/ollama:$IMAGE_TAG
+        docker build -t hahtangtang/images:ollama_$IMAGE_TAG .
+        docker push hahtangtang/images:ollama_$IMAGE_TAG
