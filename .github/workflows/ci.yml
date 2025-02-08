@@ -11,7 +11,6 @@ jobs:
     - name: Build and Push Docker Image
       run: |
         IMAGE_TAG=`cat Dockerfile|grep VERSION|awk '{print $2}'`
-        docker login ccr.ccs.tencentyun.com --username=${{ secrets.TCR_USERNAME }} --password=${{ secrets.TCR_PASSWORD }}
         docker login docker.io --username=${{ secrets.DOCKERHUBUSER }} --password=${{ secrets.DOCKERHUBPASSWD }} 
-        docker build -t ccr.ccs.tencentyun.com/fanpix/ollama:$IMAGE_TAG .
-        docker push ccr.ccs.tencentyun.com/fanpix/ollama:$IMAGE_TAG
+        docker build -t hahtangtang/images/ollama:$IMAGE_TAG .
+        docker push hahtangtang/images/ollama:$IMAGE_TAG
