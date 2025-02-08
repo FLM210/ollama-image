@@ -18,5 +18,6 @@ jobs:
     - name: Build and Push Docker Image
       run: |
         IMAGE_TAG=`cat Dockerfile|grep VERSION|awk '{print $2}'`
+        docker login --username=${{ secrets.DOCKERHUBUSER }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKERHUBPASSWD }} 
         docker build -t registry.cn-shanghai.aliyuncs.com/bullettech_services/app:$IMAGE_TAG .
         docker push registry.cn-shanghai.aliyuncs.com/bullettech_services/app:$IMAGE_TAG
