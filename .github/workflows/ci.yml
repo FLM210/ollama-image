@@ -17,6 +17,6 @@ jobs:
         password: "${{ secrets.REGISTRY_PASSWORD }}" # 引用GitHub repo设置的镜像容器服务密码
     - name: Build and Push Docker Image
       run: |
-        IMAGE_ATG=`cat Dockerfile|grep VERSION|awk '{print $2}'`
+        IMAGE_TAG=`cat Dockerfile|grep VERSION|awk '{print $2}'`
         docker build -t registry.cn-shanghai.aliyuncs.com/bullettech_services/app:$IMAGE_TAG .
         docker push registry.cn-shanghai.aliyuncs.com/bullettech_services/app:$IMAGE_TAG
